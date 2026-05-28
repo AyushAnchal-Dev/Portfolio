@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Anchal — AI | Blockchain Developer | Full Stack Portfolio</title>
+  <meta name="description" content="Ayush Anchal — Full Stack Developer specializing in AI and Blockchain. I can deliver an agile working model of any project in 24 hours." />
+  <meta name="keywords" content="Ayush Anchal, Full Stack Developer, AI Developer, Blockchain Developer, Portfolio, React, Next.js, Solidity" />
+  <meta name="author" content="Ayush Anchal" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ayush Anchal — AI | Blockchain Developer" />
+  <meta property="og:description" content="I can deliver an agile working model of any project in 24 hours." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Permanent+Marker&display=swap" rel="stylesheet" />
+
+  <!-- Devicons for skill icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            hand: ['Caveat', 'cursive'],
+            marker: ['Permanent Marker', 'cursive'],
+            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ice: { 50:'#f0f9ff', 100:'#e0f2fe', 200:'#bae6fd', 300:'#7dd3fc', 400:'#38bdf8', 500:'#0ea5e9', 600:'#0284c7' },
+            base: { 700:'#2a2a3d', 800:'#1e1e2e', 900:'#0f0f1a', 950:'#08080f' },
+            neon: { pink:'#ff2d75', green:'#39ff14', orange:'#ff6b35', cyan:'#00f0ff', purple:'#b44aff', yellow:'#ffe600' },
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-main">
+
+  <!-- ==================== LOADER ==================== -->
+  <div id="loader" class="loader-screen">
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+  </div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-hand text-2xl text-ice-400 hover:text-ice-300 transition-colors">AA</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#arena" class="nav-link">The Arena</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-ice-300 hover:text-ice-100 transition-colors" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+      <div class="glass-panel p-4 flex flex-col gap-3">
+        <a href="#arena" class="nav-link" onclick="closeMobileMenu()">The Arena</a>
+        <a href="#skills" class="nav-link" onclick="closeMobileMenu()">Skills</a>
+        <a href="#projects" class="nav-link" onclick="closeMobileMenu()">Projects</a>
+        <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
+        <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== SECTION 1: HERO ==================== -->
+  <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 z-10 overflow-hidden">
+    <!-- Decorative ice particles -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" id="particles-container"></div>
+
+    <h1 class="spray-text font-marker text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-ice-50 mb-4 tracking-tight leading-tight" style="text-shadow: 0 0 30px rgba(14,165,233,0.3);">
+      Ayush Anchal
+    </h1>
+
+    <p class="spray-subtitle font-hand text-xl sm:text-2xl md:text-3xl tracking-[0.2em] mb-6" style="color: var(--neon-cyan);">
+      fullStack <span class="text-neon-pink">|</span> AI <span class="text-neon-pink">|</span> Blockchain Developer
+    </p>
+
+    <p class="spray-tagline font-sans text-base sm:text-lg text-ice-300/80 max-w-xl mx-auto leading-relaxed font-light">
+      I can deliver an agile working model of <br class="hidden sm:block" />
+      <span class="text-ice-100 font-semibold">any project in 24 hours.</span>
+    </p>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+      <span class="text-xs text-ice-400 font-mono tracking-widest">SCROLL</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-ice-400">
+        <rect x="1" y="1" width="14" height="22" rx="7" />
+        <line x1="8" y1="6" x2="8" y2="10" stroke-linecap="round">
+          <animate attributeName="y1" values="6;10;6" dur="1.5s" repeatCount="indefinite" />
+          <animate attributeName="y2" values="10;14;10" dur="1.5s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+        </line>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 2: THE 24-HOUR ARENA ==================== -->
+  <section id="arena" class="relative py-24 md:py-32 px-6 z-10">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="reveal text-center font-hand text-3xl md:text-4xl text-ice-300 mb-4">The 24-Hour Arena</h2>
+      <p class="reveal text-center text-ice-400/60 text-sm font-mono tracking-wider mb-16">CONCEPT → CODE → DEPLOY</p>
+
+      <!-- Timer + Orbit container -->
+      <div class="relative mx-auto" style="width: 500px; height: 500px; max-width: 90vw; max-height: 90vw;">
+        <!-- Timer -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
+          <div class="relative">
+            <div class="timer-glow"></div>
+            <svg width="200" height="200" viewBox="0 0 200 200" class="drop-shadow-lg">
+              <circle cx="100" cy="100" r="90" class="timer-ring-bg" />
+              <circle cx="100" cy="100" r="90" class="timer-ring" id="timer-ring"
+                stroke-dasharray="565.48" stroke-dashoffset="0"
+                transform="rotate(-90 100 100)" />
+            </svg>
+            <div id="timer-display" class="absolute inset-0 flex items-center justify-center font-mono text-3xl sm:text-4xl text-ice-100 font-bold tracking-wider" style="text-shadow: 0 0 20px rgba(14,165,233,0.5);">
+              24:00:00
+            </div>
+          </div>
+
+          <button id="challenge-btn" class="challenge-btn mt-8" aria-label="Challenge me — start a 24 hour project">
+            Challenge Me →
+          </button>
+        </div>
+
+        <!-- Orbiting Sticky Notes (desktop only) -->
+        <div id="orbit-wrapper" class="hidden md:block absolute inset-0">
+          <!-- Note 1: HireAI -->
+          <div class="orbit-item" style="--orbit-radius: 220px;">
+            <div class="sticky-note float-1" style="transform: rotate(-3deg); min-width: 160px;">
+              <div class="font-marker text-sm">🧠 HireAI</div>
+              <div class="note-details">
+                <p class="text-xs mt-1 leading-relaxed opacity-80">AI-Powered Hiring Dashboard with live coding assessments & AI code review.</p>
+                <p class="text-xs font-bold mt-2 text-blue-700">Agile model in 24h</p>
+                <div class="flex gap-2 mt-2">
+                  <a href="https://hireai-ai-powered-hiring-dashboard-production.up.railway.app/" target="_blank" class="text-xs text-blue-600 hover:underline font-semibold">Live Demo ↗</a>
+                  <a href="https://github.com/AyushAnchal-Dev/HireAI-AI-Powered-Hiring-Dashboard" target="_blank" class="text-xs text-gray-600 hover:underline font-semibold">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Note 2: KarmaPass -->
+          <div class="orbit-item" style="--orbit-radius: 220px;">
+            <div class="sticky-note float-2" style="transform: rotate(2deg); min-width: 160px;">
+              <div class="font-marker text-sm">🪪 KarmaPass</div>
+              <div class="note-details">
+                <p class="text-xs mt-1 leading-relaxed opacity-80">On-chain skill verification platform — AI resume + Blockchain proof.</p>
+                <p class="text-xs font-bold mt-2 text-blue-700">Agile model in 24h</p>
+                <div class="flex gap-2 mt-2">
+                  <a href="https://karmapass.vercel.app" target="_blank" class="text-xs text-blue-600 hover:underline font-semibold">Live Demo ↗</a>
+                  <a href="https://github.com/AyushAnchal-Dev/karmapass" target="_blank" class="text-xs text-gray-600 hover:underline font-semibold">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Note 3: Resume Analyzer -->
+          <div class="orbit-item" style="--orbit-radius: 220px;">
+            <div class="sticky-note float-3" style="transform: rotate(-2deg); min-width: 160px;">
+              <div class="font-marker text-sm">📝 Resume Analyzer</div>
+              <div class="note-details">
+                <p class="text-xs mt-1 leading-relaxed opacity-80">AI resume parsing + skill extraction + blockchain verification.</p>
+                <p class="text-xs font-bold mt-2 text-blue-700">Agile model in 24h</p>
+                <div class="flex gap-2 mt-2">
+                  <a href="https://resume-analyzer-frontend-beta.vercel.app" target="_blank" class="text-xs text-blue-600 hover:underline font-semibold">Live Demo ↗</a>
+                  <a href="https://github.com/AyushAnchal-Dev" target="_blank" class="text-xs text-gray-600 hover:underline font-semibold">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Note 4: AERO-PASS -->
+          <div class="orbit-item" style="--orbit-radius: 220px;">
+            <div class="sticky-note float-4" style="transform: rotate(3deg); min-width: 160px;">
+              <div class="font-marker text-sm">✈️ AERO-PASS</div>
+              <div class="note-details">
+                <p class="text-xs mt-1 leading-relaxed opacity-80">Passport social media scraper + NLP analytics dashboard.</p>
+                <p class="text-xs font-bold mt-2 text-blue-700">Agile model in 24h</p>
+                <div class="flex gap-2 mt-2">
+                  <a href="https://passport-scraper-dashboard.vercel.app" target="_blank" class="text-xs text-blue-600 hover:underline font-semibold">Live Demo ↗</a>
+                  <a href="https://github.com/AyushAnchal-Dev/passport-scraper-dashboard" target="_blank" class="text-xs text-gray-600 hover:underline font-semibold">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Note 5: TaskMan -->
+          <div class="orbit-item" style="--orbit-radius: 220px;">
+            <div class="sticky-note float-5" style="transform: rotate(-1deg); min-width: 160px;">
+              <div class="font-marker text-sm">📌 TaskMan</div>
+              <div class="note-details">
+                <p class="text-xs mt-1 leading-relaxed opacity-80">Full-stack MERN task management with JWT auth & priority system.</p>
+                <p class="text-xs font-bold mt-2 text-blue-700">Agile model in 24h</p>
+                <div class="flex gap-2 mt-2">
+                  <a href="https://fullstack-management-system-task-ma-one.vercel.app" target="_blank" class="text-xs text-blue-600 hover:underline font-semibold">Live Demo ↗</a>
+                  <a href="https://github.com/AyushAnchal-Dev/Fullstack-Management-System-TaskMan" target="_blank" class="text-xs text-gray-600 hover:underline font-semibold">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Note 6: EchoTalk -->
+          <div class="orbit-item" style="--orbit-radius: 220px;">
+            <div class="sticky-note float-6" style="transform: rotate(1deg); min-width: 160px;">
+              <div class="font-marker text-sm">🎙️ EchoTalk</div>
+              <div class="note-details">
+                <p class="text-xs mt-1 leading-relaxed opacity-80">Real-time chat with Socket.IO, AI assistant & speech-to-text.</p>
+                <p class="text-xs font-bold mt-2 text-blue-700">Agile model in 24h</p>
+                <div class="flex gap-2 mt-2">
+                  <a href="https://github.com/AyushAnchal-Dev/EchoTalk-Real-Time-Chat-Application" target="_blank" class="text-xs text-blue-600 hover:underline font-semibold">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile sticky notes (stacked) -->
+        <div class="md:hidden flex flex-col gap-4 mt-8 w-full items-center" id="mobile-notes">
+          <div class="sticky-note w-full max-w-xs" style="transform: rotate(-1deg);">
+            <div class="font-marker text-sm">🧠 HireAI</div>
+            <div class="note-details" style="max-height:200px;opacity:1;margin-top:0.5rem;">
+              <p class="text-xs leading-relaxed opacity-80">AI-Powered Hiring Dashboard</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://hireai-ai-powered-hiring-dashboard-production.up.railway.app/" target="_blank" class="text-xs text-blue-600 font-semibold">Live ↗</a>
+                <a href="https://github.com/AyushAnchal-Dev/HireAI-AI-Powered-Hiring-Dashboard" target="_blank" class="text-xs text-gray-600 font-semibold">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="sticky-note w-full max-w-xs" style="transform: rotate(1deg);">
+            <div class="font-marker text-sm">🪪 KarmaPass</div>
+            <div class="note-details" style="max-height:200px;opacity:1;margin-top:0.5rem;">
+              <p class="text-xs leading-relaxed opacity-80">On-Chain Skill Verification</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://karmapass.vercel.app" target="_blank" class="text-xs text-blue-600 font-semibold">Live ↗</a>
+                <a href="https://github.com/AyushAnchal-Dev/karmapass" target="_blank" class="text-xs text-gray-600 font-semibold">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="sticky-note w-full max-w-xs" style="transform: rotate(-1deg);">
+            <div class="font-marker text-sm">📝 Resume Analyzer</div>
+            <div class="note-details" style="max-height:200px;opacity:1;margin-top:0.5rem;">
+              <p class="text-xs leading-relaxed opacity-80">AI Resume + Blockchain Verifier</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://resume-analyzer-frontend-beta.vercel.app" target="_blank" class="text-xs text-blue-600 font-semibold">Live ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="sticky-note w-full max-w-xs" style="transform: rotate(2deg);">
+            <div class="font-marker text-sm">✈️ AERO-PASS</div>
+            <div class="note-details" style="max-height:200px;opacity:1;margin-top:0.5rem;">
+              <p class="text-xs leading-relaxed opacity-80">Passport Social Media Dashboard</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://passport-scraper-dashboard.vercel.app" target="_blank" class="text-xs text-blue-600 font-semibold">Live ↗</a>
+                <a href="https://github.com/AyushAnchal-Dev/passport-scraper-dashboard" target="_blank" class="text-xs text-gray-600 font-semibold">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== IGLOO CODE PANELS ==================== -->
+  <section class="relative py-16 md:py-24 px-6 z-10 overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-stretch">
+        <!-- Panel 1 -->
+        <div class="igloo-panel reveal-left flex-1 p-6 min-h-[200px] md:min-h-[260px] overflow-hidden">
+          <div class="code-scroll">
+const analyzeResume = async (file) => {
+  const skills = await AI.extract(file);
+  const roles = matchRoles(skills);
+  const hash = await blockchain.verify({
+    skills, roles, timestamp: Date.now()
+  });
+  return { skills, roles, hash };
+};
+
+// Smart contract verification
+contract KarmaPass {
+  mapping(address => Skill[]) public verified;
+  function verify(Skill memory s) public {
+    verified[msg.sender].push(s);
+    emit SkillVerified(msg.sender, s.name);
+  }
+}
+
+const analyzeResume = async (file) => {
+  const skills = await AI.extract(file);
+  const roles = matchRoles(skills);
+  const hash = await blockchain.verify({
+    skills, roles, timestamp: Date.now()
+  });
+  return { skills, roles, hash };
+};
+          </div>
+        </div>
+        <!-- Panel 2 -->
+        <div class="igloo-panel reveal flex-1 p-6 min-h-[200px] md:min-h-[260px] overflow-hidden" style="transition-delay: 0.15s;">
+          <div class="code-scroll" style="animation-duration: 25s;">
+app.post('/api/scrape', async (req, res) => {
+  const platforms = ['reddit', 'twitter'];
+  const posts = await scraper.collect({
+    platforms,
+    keywords: ['passport', 'visa'],
+    window: '24h'
+  });
+  const classified = nlp.categorize(posts);
+  const clusters = dbscan.group(classified);
+  await db.posts.insertMany(clusters);
+  ws.broadcast({ type: 'NEW_POSTS', count: posts.length });
+  res.json({ success: true, count: posts.length });
+});
+
+// NLP Classification Pipeline
+const categorize = (posts) => {
+  return posts.map(post => ({
+    ...post,
+    category: classifier.predict(post.text),
+    sentiment: sentiment.analyze(post.text),
+    summary: summarizer.generate(post.text, 30)
+  }));
+};
+          </div>
+        </div>
+        <!-- Panel 3 -->
+        <div class="igloo-panel reveal-right flex-1 p-6 min-h-[200px] md:min-h-[260px] overflow-hidden" style="transition-delay: 0.3s;">
+          <div class="code-scroll" style="animation-duration: 28s;">
+// Real-time Socket.IO Chat
+io.on('connection', (socket) => {
+  socket.on('message', async (data) => {
+    const saved = await Message.create(data);
+    io.to(data.room).emit('newMessage', saved);
+    if (data.text.startsWith('/ai')) {
+      const reply = await echoBot.respond(data.text);
+      io.to(data.room).emit('botReply', reply);
+    }
+  });
+  socket.on('typing', (user) => {
+    socket.to(user.room).emit('userTyping', user);
+  });
+});
+
+// JWT Authentication Middleware
+const protect = async (req, res, next) => {
+  const token = req.headers.authorization;
+  const decoded = jwt.verify(token, SECRET);
+  req.user = await User.findById(decoded.id);
+  next();
+};
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-4xl mx-auto"></div>
+
+  <!-- ==================== SECTION 3: SKILLS CONSTELLATION ==================== -->
+  <section id="skills" class="relative py-24 md:py-32 px-6 z-10">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="reveal text-center font-hand text-3xl md:text-4xl text-ice-300 mb-2">Skills Constellation</h2>
+      <p class="reveal text-center text-ice-400/60 text-sm font-mono tracking-wider mb-16">TECHNOLOGIES I WORK WITH</p>
+
+      <div class="space-y-12 stagger-children">
+
+        <!-- Programming Languages -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">💻 Programming Languages</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #f7df1e;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="JavaScript" />
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #3178c6;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="TypeScript" />
+              <span>TypeScript</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #00599c;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+              <span>C++</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #363636;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/solidity/solidity-original.svg" alt="Solidity" />
+              <span>Solidity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">🌐 Frontend</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #e34f26;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML5" />
+              <span>HTML5</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #1572b6;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="CSS3" />
+              <span>CSS3</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #06b6d4;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" />
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #61dafb;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="React.js" />
+              <span>React.js</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #646cff;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="Vite" />
+              <span>Vite</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #ffffff;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+              <span>Next.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">🧩 Backend</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #339933;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+              <span>Node.js</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #ffffff;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/express/express-original.svg" alt="Express.js" />
+              <span>Express.js</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #2d3748;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/prisma/prisma-original.svg" alt="Prisma" />
+              <span>Prisma ORM</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #009688;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/fastapi/fastapi-original.svg" alt="FastAPI" />
+              <span>FastAPI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">🗄 Databases</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #47a248;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+              <span>MongoDB</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #336791;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+              <span>PostgreSQL</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #d82c20;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redis/redis-original.svg" alt="Redis" />
+              <span>Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blockchain -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">🔗 Blockchain</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #3c3c3d;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/ethereum/ethereum-original.svg" alt="Ethereum" />
+              <span>Ethereum</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #7b3fe4;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/polygon/polygon-original.svg" alt="Polygon" />
+              <span>Polygon</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #363636;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/solidity/solidity-original.svg" alt="Solidity" />
+              <span>Solidity</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #65c2cb;">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor" style="color:#65c2cb;"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7.12 3.56L12 11.3 4.88 7.74 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86V12.32l7-3.5v7.36l-7 3.5z"/></svg>
+              <span>IPFS</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #f6851b;">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor" style="color:#f6851b;"><path d="M20.7 6.3l-1.6-.8-6.4-3.2c-.4-.2-.9-.2-1.3 0L5 5.5l-1.6.8c-.5.2-.8.7-.8 1.2v9c0 .5.3 1 .8 1.2l1.6.8 6.4 3.2c.4.2.9.2 1.3 0l6.4-3.2 1.6-.8c.5-.2.8-.7.8-1.2v-9c0-.5-.3-1-.8-1.2zM12 15.5L6 12.3V8.1l6 3.2v4.2zm0-5.8L6.2 6.7 12 3.8l5.8 2.9L12 9.7zm6 2.6l-5 2.5V12l5-2.5v2.8z"/></svg>
+              <span>MetaMask</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI / NLP -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">🤖 AI / NLP</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #ff6f00;">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#ff6f00;"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M8 14l-2 4M16 14l2 4M10 8l-3-3M14 8l3-3"/></svg>
+              <span>Resume Parsing</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #00bcd4;">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#00bcd4;"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h6M7 16h8"/><circle cx="18" cy="15" r="2" fill="currentColor"/></svg>
+              <span>Skill Extraction</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #9c27b0;">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#9c27b0;"><path d="M4 6h16M4 12h10M4 18h14"/><circle cx="19" cy="12" r="3" fill="currentColor" opacity="0.3"/><path d="M16 9l3 3-3 3"/></svg>
+              <span>Job Matching</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #10a37f;">
+              <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor" style="color:#10a37f;"><path d="M22.28 14.37a5.87 5.87 0 0 0-.51-4.85 5.93 5.93 0 0 0-6.38-2.85A5.9 5.9 0 0 0 4.3 9.44a5.87 5.87 0 0 0-3.93 2.84 5.93 5.93 0 0 0 .73 6.95 5.87 5.87 0 0 0 .51 4.85 5.93 5.93 0 0 0 6.38 2.85A5.87 5.87 0 0 0 12.39 29a5.93 5.93 0 0 0 5.66-4.12 5.87 5.87 0 0 0 3.93-2.84 5.93 5.93 0 0 0-.73-6.95z" transform="scale(0.8) translate(3,0)"/></svg>
+              <span>LLM Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Infra -->
+        <div class="reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="skill-category">🛠 Tools & Infrastructure</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <div class="skill-node tilt-card" style="--skill-color: #f05032;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="Git" />
+              <span>Git</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #181717;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt="GitHub" />
+              <span>GitHub</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #ff6c37;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postman/postman-original.svg" alt="Postman" />
+              <span>Postman</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #ffca28;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/firebase/firebase-original.svg" alt="Firebase" />
+              <span>Firebase</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #2496ed;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="Docker" />
+              <span>Docker</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #ffffff;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vercel/vercel-original.svg" alt="Vercel" />
+              <span>Vercel</span>
+            </div>
+            <div class="skill-node tilt-card" style="--skill-color: #46e3b7;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/netlify/netlify-original.svg" alt="Netlify" />
+              <span>Netlify</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-4xl mx-auto"></div>
+
+  <!-- ==================== SECTION 4: PROJECT WALL (BASEMENT GALLERY) ==================== -->
+  <section id="projects" class="project-wall relative py-24 md:py-32 px-6 z-10">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="reveal text-center font-hand text-3xl md:text-4xl text-ice-300 mb-2">The Basement Wall</h2>
+      <p class="reveal text-center text-ice-400/60 text-sm font-mono tracking-wider mb-16">PROJECTS BUILT WITH PASSION</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
+
+        <!-- Project 1: HireAI -->
+        <div class="project-item reveal tilt-card" data-name="HireAI" style="--project-color: #b44aff;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">🧠 HireAI</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">AI-Powered Hiring Dashboard — automated recruitment, live coding assessments with AI code review, DSA generation, and analytics.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Prisma</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Ollama</span>
+              <span class="tech-tag">shadcn/ui</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://hireai-ai-powered-hiring-dashboard-production.up.railway.app/" target="_blank" class="project-link project-link-live">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/AyushAnchal-Dev/HireAI-AI-Powered-Hiring-Dashboard" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: KarmaPass -->
+        <div class="project-item reveal tilt-card" data-name="KarmaPass" style="--project-color: #39ff14;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">🪪 KarmaPass</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">On-Chain Skill Verification Platform — AI resume extraction + Polygon blockchain proof + public QR code profiles.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Tailwind</span>
+              <span class="tech-tag">Solidity</span>
+              <span class="tech-tag">Polygon</span>
+              <span class="tech-tag">IPFS</span>
+              <span class="tech-tag">MetaMask</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://karmapass.vercel.app" target="_blank" class="project-link project-link-live">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/AyushAnchal-Dev/karmapass" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: AERO-PASS -->
+        <div class="project-item reveal tilt-card" data-name="AERO-PASS" style="--project-color: #00f0ff;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">✈️ AERO-PASS</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Passport Social Media Analytics Dashboard — real-time scraping, NLP classification, DBSCAN clustering, 10-language translation.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">NLP</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://passport-scraper-dashboard.vercel.app" target="_blank" class="project-link project-link-live">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/AyushAnchal-Dev/passport-scraper-dashboard" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Resume Analyzer -->
+        <div class="project-item reveal tilt-card" data-name="Resume Analyzer" style="--project-color: #ff6b35;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">📝 Resume Analyzer</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Intelligent resume parser — AI skill extraction, job role matching, and blockchain authenticity verification.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Tailwind</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Prisma</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Solidity</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://resume-analyzer-frontend-beta.vercel.app" target="_blank" class="project-link project-link-live">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/AyushAnchal-Dev" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: TaskMan -->
+        <div class="project-item reveal tilt-card" data-name="TaskMan" style="--project-color: #ff2d75;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">📌 TaskMan</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Full-Stack MERN task management with JWT auth, priority management, due dates, and responsive UI.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://fullstack-management-system-task-ma-one.vercel.app" target="_blank" class="project-link project-link-live">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/AyushAnchal-Dev/Fullstack-Management-System-TaskMan" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: EchoTalk -->
+        <div class="project-item reveal tilt-card" data-name="EchoTalk" style="--project-color: #ffe600;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">🎙️ EchoTalk</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Real-time chat with Socket.IO, JWT auth, AI EchoBot assistant, speech-to-text, emoji & file sharing.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Socket.IO</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">AI Bot</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/AyushAnchal-Dev/EchoTalk-Real-Time-Chat-Application" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: NovaTrack -->
+        <div class="project-item reveal tilt-card" data-name="NovaTrack" style="--project-color: #39ff14;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">💰 NovaTrack</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Expense tracker with real-time balance, category filtering, smart insights, CSV export, and dark mode.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/AyushAnchal-Dev/NovaTrack-Expense-Tracker" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8: Time Capsule Portfolio -->
+        <div class="project-item reveal tilt-card" data-name="Time Capsule" style="--project-color: #00f0ff;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">🚀 Time Capsule Portfolio</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Timeline-based creative portfolio — story-driven design with secret capsule section and unique UI concepts.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="http://portfolio-kohl-pi-38.vercel.app" target="_blank" class="project-link project-link-live">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/AyushAnchal-Dev/Time-Capsule-Portfolio" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9: Digital Clock -->
+        <div class="project-item reveal tilt-card" data-name="Digital Clock" style="--project-color: #b44aff;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">⏰ Digital Clock</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">Neon glow animated clock with dynamic greetings, dark/light mode, and responsive modular design.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/AyushAnchal-Dev/Digital-Clock" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 10: Movie Search -->
+        <div class="project-item reveal tilt-card" data-name="Movie Search" style="--project-color: #ffe600;">
+          <div class="relative z-10">
+            <h3 class="spray-reveal font-marker text-xl text-ice-100 mb-2">🎬 Movie Search App</h3>
+            <p class="text-sm text-ice-300/70 mb-4 leading-relaxed">OMDb API movie discovery with voice search, detailed info panels, and responsive UI.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">OMDb API</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/AyushAnchal-Dev/Movie-Search-App" target="_blank" class="project-link project-link-github">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-4xl mx-auto"></div>
+
+  <!-- ==================== SECTION 5: ABOUT / BIO ==================== -->
+  <section id="about" class="relative py-24 md:py-32 px-6 z-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="glass-panel-strong p-8 md:p-12 reveal-scale">
+        <h2 class="font-hand text-3xl md:text-4xl text-ice-300 mb-6">About Me</h2>
+        <div class="space-y-4 text-ice-200/80 leading-relaxed">
+          <p>
+            Hi, I'm <span class="bio-highlight">Ayush Anchal</span> 👋
+          </p>
+          <p>
+            🎓 <span class="bio-highlight">B.Tech CSE (2023–2027)</span> from India<br />
+            💻 Full Stack Developer | <span class="bio-highlight">AI + Blockchain</span> Enthusiast
+          </p>
+          <p>
+            I build <span class="text-ice-100 font-medium">real-world, scalable, and impact-driven applications</span> using Web Technologies, AI systems, and Blockchain infrastructure. My focus is on clean architecture, meaningful features, and production-ready code.
+          </p>
+          <div class="mt-8">
+            <a href="AYUSH_ANCHAL_RESUME.pdf" download class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-ice-50 transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, var(--ice-500), var(--ice-600)); box-shadow: 0 4px 20px rgba(14,165,233,0.3);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </a>
+          </div>
+          <p class="text-ice-400/60 text-sm font-mono mt-6">
+            "The only way to prove you can build it — is to build it. In 24 hours."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-4xl mx-auto"></div>
+
+  <!-- ==================== SECTION 6: FOOTER / CONTACT ==================== -->
+  <footer id="contact" class="relative py-16 md:py-24 px-6 z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="reveal font-hand text-3xl md:text-4xl text-ice-300 mb-12">Let's Connect</h2>
+
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12">
+        <!-- Email -->
+        <div class="glass-panel px-5 py-3 flex items-center gap-3 group">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-ice-400">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <a href="mailto:abhardwaj8507@gmail.com" class="text-ice-200 text-sm hover:text-ice-100 transition-colors">abhardwaj8507@gmail.com</a>
+          <button class="copy-btn" data-copy="abhardwaj8507@gmail.com" aria-label="Copy email">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="glass-panel px-5 py-3 flex items-center gap-3 group">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-ice-400">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          <a href="https://www.linkedin.com/in/ayush-anchal-04117028a" target="_blank" class="text-ice-200 text-sm hover:text-ice-100 transition-colors">LinkedIn</a>
+          <button class="copy-btn" data-copy="https://www.linkedin.com/in/ayush-anchal-04117028a" aria-label="Copy LinkedIn URL">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+
+        <!-- GitHub -->
+        <div class="glass-panel px-5 py-3 flex items-center gap-3 group">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-ice-400">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          <a href="https://github.com/AyushAnchal-Dev" target="_blank" class="text-ice-200 text-sm hover:text-ice-100 transition-colors">GitHub</a>
+          <button class="copy-btn" data-copy="https://github.com/AyushAnchal-Dev" aria-label="Copy GitHub URL">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Spray paint signature -->
+      <div class="reveal">
+        <p class="spray-signature font-marker text-2xl md:text-3xl mb-4" style="color: var(--neon-cyan); opacity: 0; animation: spraySignature 2s cubic-bezier(0.16,1,0.3,1) forwards 0.5s; text-shadow: 0 0 15px rgba(0,240,255,0.4), 0 0 40px rgba(0,240,255,0.15);">Ayush Anchal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">Copied to clipboard!</div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
