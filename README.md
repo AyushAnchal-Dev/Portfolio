@@ -2,7 +2,7 @@
 
 A one-page interactive portfolio showcasing my projects, skills, and development journey.
 
-🌐 **Live:** [View Portfolio](#) *(deploy to get your link)*
+🌐 **Live:** [View Portfolio](#) *(portfolio-x2cn.vercel.app)*
 📦 **GitHub:** [AyushAnchal-Dev](https://github.com/AyushAnchal-Dev)
 
 ---
@@ -67,41 +67,9 @@ open index.html         # macOS
 xdg-open index.html     # Linux
 ```
 
-Or use a local server for full functionality:
-
-```bash
-# Using Python
-python -m http.server 8000
-
-# Using Node.js (npx)
-npx serve .
-
-# Then open http://localhost:8000
-```
 
 ---
 
-## 🌍 Deployment
-
-### GitHub Pages
-1. Push this folder to a GitHub repository
-2. Go to **Settings → Pages → Deploy from branch**
-3. Select `main` branch, root directory
-4. Your site will be live at `https://yourusername.github.io/repo-name/`
-
-### Vercel
-1. Import your GitHub repo on [vercel.com](https://vercel.com)
-2. Set root directory to `./` (or `portfolio/` if nested)
-3. No build command needed — it's static
-4. Deploy → get your live URL
-
-### Netlify
-1. Drag and drop the `portfolio/` folder on [netlify.com](https://netlify.com)
-2. Or connect your GitHub repo
-3. No build settings needed
-4. Deploy → get your live URL
-
----
 
 ## 📋 Sections
 
